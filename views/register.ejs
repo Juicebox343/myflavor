@@ -1,0 +1,37 @@
+<% include ./partials/header %>	
+	<link rel="stylesheet" type="text/css" href="/styles/landing-styles.css">
+	</head>
+
+	<body>
+
+		<main>
+			<div class="form-wrapper">
+				<h1>My Flavor</h1>
+				<form id="newForm" action="/register" method="POST">
+					<h2>
+						Sign Up
+					</h2>
+						<label for="firstname">First Name</label>
+						<input type="text" name="firstname" id="firstname">
+
+						<label for="username">Username</label>
+						<input type="text" name="username" id="username">
+
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email">
+
+						<label for="password">Password</label>
+						<input type="password" name="password" id="password">
+
+						<label for="confpassword">Retype Password</label>
+						<input type="password" name="confpassword" id="confpassword">
+
+						<p class="passAlert">Passwords do not match!</p>
+					
+					<button type="submit">Sign Up</button>
+				</form>
+				<a href="/">Go back</a>
+			</div>
+		</main>
+		
+<% include ./partials/footer %>

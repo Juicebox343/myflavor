@@ -1,0 +1,50 @@
+<% include ./partials/header %>
+	<link rel="stylesheet" type="text/css" href="/styles/main-styles.css">
+	<link rel="stylesheet" type="text/css" href="/styles/pantry-styles.css">
+</head>
+
+<body>
+	<main class='main-wrapper'>			
+			<!-- <h1>My Flavor</h1> -->
+			<header>
+				<div>
+					<label for='searchBar'>Search Your Collection</label>
+					<input type="text" placeholder="Beans, ketchup, pizza.." name="keyword" id="searchBar" autocomplete="off">
+				</div>			
+			</header>
+					
+			<div class='resultWrapper'>
+				<ul class="resultList">	
+					<% searchResults.forEach((result) => { %>
+						<a href="/<%=userID%>/items/<%=result.id%>">
+							<li class="list-item">
+								<span class="favoriteIcon"><%=result.favorite%></span>
+								<span class="elementDesc"><%=result.item%> (<%=result.brand%>)</span>
+								<span class="myRating"><%=result.my_rating%></span>
+							</li>
+						</a>
+						<hr>
+					<% }) %>
+				</ul>
+			</div>
+			<footer>
+				<ul class="top-menu">
+					<a href="/<%=userID%>/settings"><li>My Account</li></a>
+					<span class="separate-me"></span>
+					<a id="selected-screen" href="/<%=userID%>/rated-items"><li>Added Items</li></a>
+					<span class="separate-me"></span>
+					<a href="/<%=userID%>/items/new-item"><li>New Item</li></a>
+					<!-- <span class="separate-me"></span>
+					<a href="/<%=userID%>/new-food"><li>My Pantry</li></a> -->
+				</ul>
+			</footer>
+			
+	</main>
+
+	<script>
+		let allResults = <%- JSON.stringify(searchResults) %>;
+		let userID = <%- JSON.stringify(userID) %>;
+	</script>
+
+<% include ./partials/footer %>
+	

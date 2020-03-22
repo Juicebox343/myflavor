@@ -1,0 +1,60 @@
+<% include ./partials/header %>
+	<link rel="stylesheet" type="text/css" href="/styles/main-styles.css">
+</head>
+
+<body>
+	<main class='main-wrapper'>			
+		<header>
+			<h2 class="headingheading">Add a new item</h2>
+		</header>
+		<div class="itemWrapper">
+				<form class="newIngredients" action="/<%=userID%>/new-food" method="POST">
+					<p class="itemName">
+						<label for="item">Item</label>
+						<input type="text" name="item" id="item">
+					</p>
+	
+					<p class="item-subtitle">
+						<label for="brand">Brand</label>
+						<input type="text" name="brand" id="brand">
+					</p>
+					
+					<p class="item-comments">Add a comment:
+						<textarea class="textArea" name="itemComment" maxlength=3000 rows="4" cols="50"></textarea>
+					</p>
+	
+					<div class="button-wrapper">
+	
+						<input type="checkbox" id="favButton" name="favButton">
+						<label for="favButton" id="favorite"></label>
+						
+						<input type="radio" id="radioLove" name="itemRating" value="2">
+						<label for="radioLove">It's great!</label>
+						
+						<input type="radio" id="radioMeh" name="itemRating" value="1">
+						<label for="radioMeh">It's alright.</label>
+	
+						<input type="radio" id="radioHate" name="itemRating" value="0">
+						<label for="radioHate">Avoid.</label>
+	
+						
+					</div>
+					
+					<button class="ratingSubmit" type='submit'>Add Item</button>
+	
+				</form>
+			</div>
+			<footer>
+				<ul class="top-menu">
+					<a href="/<%=userID%>/settings"><li>My Account</li></a>
+					<span class="separate-me"></span>
+					<a href="/<%=userID%>/rated-items"><li>Added Items</li></a>
+					<span class="separate-me"></span>
+					<a href="/<%=userID%>/items/new-item"><li>New Item</li></a>
+					<!-- <span class="separate-me"></span>
+					<a href="/<%=userID%>/new-food"><li>My Pantry</li></a> -->
+				</ul>
+			</footer>
+	</main>
+
+<% include ./partials/footer %>

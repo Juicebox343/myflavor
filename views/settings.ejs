@@ -1,0 +1,52 @@
+<% include ./partials/header %>
+	<link rel="stylesheet" type="text/css" href="/styles/main-styles.css">
+	<link rel="stylesheet" type="text/css" href="/styles/pantry-styles.css">
+</head>
+
+<body>
+	<main class='main-wrapper'>			
+			<header>
+                <h2 class="headingheading"><%=searchResults[0].first_name%>'s Account</h2>		
+			</header>
+					
+			<div class='settingsWrapper'>
+                <form class="settingsForm" action="/<%=userID%>/account?_method=PUT" method="POST">
+                    
+                    <p class="userFirstName">
+						<label for="firstname">First Name</label>
+						<input type="text" name="firstname" id="firstname" value='<%=searchResults[0].first_name%>'>
+					</p>
+	
+					<p class="userEmail">
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" value='<%=searchResults[0].user_email%>'>
+                    </p>
+
+                    <a class="gobacklogout" href="/logout">Log out</a>
+                    
+					<button class="ratingSubmit" type='submit'>Update</button>
+	
+				</form>
+			</div>
+			<footer>
+				<ul class="top-menu">
+					<a href="/<%=userID%>/settings"><li>My Account</li></a>
+					<span class="separate-me"></span>
+					<a id="selected-screen" href="/<%=userID%>/rated-items"><li>Added Items</li></a>
+					<span class="separate-me"></span>
+					<a href="/<%=userID%>/items/new-item"><li>New Item</li></a>
+					<!-- <span class="separate-me"></span>
+					<a href="/<%=userID%>/new-food"><li>My Pantry</li></a> -->
+				</ul>
+				<!-- <a class="gobacklogout" href="/logout">Log out</a> -->
+			</footer>
+			
+	</main>
+
+	<script>
+		let allResults = <%- JSON.stringify(searchResults) %>;
+		let userID = <%- JSON.stringify(userID) %>;
+	</script>
+
+<% include ./partials/footer %>
+	

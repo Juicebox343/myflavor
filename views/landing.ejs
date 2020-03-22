@@ -1,0 +1,26 @@
+<% include ./partials/header %>	
+	<link rel="stylesheet" type="text/css" href="/styles/landing-styles.css">
+	</head>
+
+	<body>
+		
+		<main>
+			<div class="form-wrapper">
+				<h1>My Flavor</h1>
+				<form id="log-in-form" action="/logmein" method="POST">
+					
+					<h2>
+						Log in
+					</h2>
+					<label for="username">Username</label>
+					<input type="text" name="username" id="username" autofocus>
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password">
+					<button type="submit">Log in</button>
+					<a href="/register">Sign Up</a>
+				</form>
+			</div>
+			<p>v0.5</p>
+		</main>
+		
+<% include ./partials/footer %>

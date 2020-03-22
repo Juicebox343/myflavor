@@ -1,0 +1,73 @@
+<% include ./partials/header %>
+	<link rel="stylesheet" type="text/css" href="/styles/main-styles.css">
+	<link rel="stylesheet" type="text/css" href="/styles/search-styles.css">
+</head>
+
+<body>
+	<main class='main-wrapper'>
+		<header>
+			<div>
+				<label for='searchBar'>Search Your Collection</label>
+				<input type="text" placeholder="Beans, ketchup, pizza.." name="keyword" id="searchBar" autocomplete="off">
+			</div>			
+		</header>
+		<div class="itemWrapper">
+			<%console.log(searchResults[0].favorite)%>
+			<form class="grocery-ratings" action="/<%=userID%>/items/<%=searchResults[0].id%>?_method=PUT" method='POST'> 
+				<h2 class="title"><%= searchResults[0].item %></h1>
+				<% if(searchResults[0].favorite === 1 ){%>
+						<input type="checkbox" id="favButton" name="favButton" checked>
+				<%} else {%>
+						<input type="checkbox" id="favButton" name="favButton">
+				<%}%>
+				<label for="favButton" id="favorite"></label>
+				
+				<p class="item-subtitle">From <%=searchResults[0].brand %></p>
+				
+				<p class="item-comments">Add a comment:
+				<textarea class="textArea" name="itemComment" maxlength=3000 rows="4" cols="50"><%=searchResults[0].my_comments %></textarea></p>
+ 				<div class="button-wrapper">
+					<% if(searchResults[0].my_rating === 2){%>
+						<input type="radio" id="radioLove" name="itemRating" value="2" checked>
+					<%} else {%>
+						<input type="radio" id="radioLove" name="itemRating" value="2">
+					<%}%>
+					<label for="radioLove">It's great!</label>
+					
+					<% if(searchResults[0].my_rating === 1){%>
+						<input type="radio" id="radioMeh" name="itemRating" value="1" checked>
+					<%} else {%>
+						<input type="radio" id="radioMeh" name="itemRating" value="1">
+					<%}%>
+					<label for="radioMeh">It's alright.</label>
+					
+					<% if(searchResults[0].my_rating === 0){%>
+						<input type="radio" id="radioHate" name="itemRating" value="0" checked>
+					<%} else {%>
+						<input type="radio" id="radioHate" name="itemRating" value="0">
+					<%}%>
+					<label for="radioHate">Avoid.</label>
+				</div>
+				
+				<input class="ratingSubmit" type="submit" value="Rate">
+			</form>
+			<form action="/<%=userID%>/my-pantry/<%=searchResults[0].id%>?_method=DELETE" method="POST" >
+				<button type="submit">Delete Item</button>
+			</form>
+		</div>
+		<footer>
+			<ul class="top-menu">
+				<a href="/<%=userID%>/settings"><li>My Account</li></a>
+				<span class="separate-me"></span>
+				<a href="/<%=userID%>/rated-items"><li>Added Items</li></a>
+				<span class="separate-me"></span>
+				<a href="/<%=userID%>/items/new-item"><li>New Item</li></a>
+				<!-- <span class="separate-me"></span>
+				<a href="/<%=userID%>/new-food"><li>My Pantry</li></a> -->
+			</ul>
+		</footer>
+	</main>
+		
+
+
+<% include ./partials/footer %>
