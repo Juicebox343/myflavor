@@ -56,7 +56,6 @@ res.render('landing');
 //log in
 router.post('/logmein', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
 let userID = req.user[0].id;
-console.log(req.user.id);
 res.redirect('/' + userID + '/rated-items');
 });
 
@@ -78,6 +77,7 @@ bcrypt.genSalt(saltRounds, function(err, salt) {
                 console.log(err);
             } else {
                 passport.authenticate('local')(req, res, function(){
+                    let userID = req.user[0].id;
                     res.redirect('/' + userID + '/rated-items');
                 });
             };
