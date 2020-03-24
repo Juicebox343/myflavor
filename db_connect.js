@@ -1,13 +1,6 @@
 mysql = require('mysql');
 
-const db = mysql.createConnection({
-    host     : 'process.env.DB_HOST',
-	user     : 'process.env.PUBLIC_USER',
-    password : 'process.env.PASSWORD',
-    port     : 'process.env.DB_PORT',
-    database : 'process.env.DATABASE_NAME',
-	multipleStatements: true
-});
+const db = mysql.createConnection(process.env.JAWSDB_MARIA_URL);
 
 db.connect((err) =>{
     if(err){
