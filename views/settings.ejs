@@ -28,25 +28,12 @@
 	
 				</form>
 			</div>
-			<footer>
-				<ul class="top-menu">
-					<a href="/<%=userID%>/settings"><li>My Account</li></a>
-					<span class="separate-me"></span>
-					<a id="selected-screen" href="/<%=userID%>/rated-items"><li>Added Items</li></a>
-					<span class="separate-me"></span>
-					<a href="/<%=userID%>/items/new-item"><li>New Item</li></a>
-					<!-- <span class="separate-me"></span>
-					<a href="/<%=userID%>/new-food"><li>My Pantry</li></a> -->
-				</ul>
-				<!-- <a class="gobacklogout" href="/logout">Log out</a> -->
-			</footer>
-			
-	</main>
 
-	<script>
-		let allResults = <%- JSON.stringify(searchResults) %>;
-		let userID = <%- JSON.stringify(userID) %>;
-	</script>
+
+			<script>
+				let allResults = <%- JSON.stringify(searchResults) %>;
+				let userID = <%- JSON.stringify(userID) %>;
+			</script>
 
 <% include ./partials/footer %>
 	
