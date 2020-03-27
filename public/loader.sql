@@ -1,5 +1,3 @@
-CREATE DATABASE myflavor;
-
 CREATE TABLE users(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	username VARCHAR(255) UNIQUE,
@@ -22,6 +20,6 @@ CREATE TABLE my_groceries(
 CREATE TABLE meals(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	title VARCHAR (255),
-	owner_id INT PRIMARY KEY,
+	owner_id INT,
 	foreign key (owner_id) REFERENCES users(id) ON DELETE CASCADE
 );
