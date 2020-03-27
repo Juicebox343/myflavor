@@ -154,6 +154,7 @@ header label{
 	font-size: 1.25rem;
 	padding-left: 8px;
 	box-shadow: inset 1px 1px 4px #02c41c;
+	margin-bottom: 1rem;
 }
 
 #searchBar::placeholder{
